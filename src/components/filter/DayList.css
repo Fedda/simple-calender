@@ -1,0 +1,15 @@
+.DayList {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 2px;
+  font-size: 15px;
+  width: 500px;
+  height: 40px;
+}
+.DayList .context {
+  font-size: 10px;
+}
+
+.DayList .removeButton {
+  float: right;
+}

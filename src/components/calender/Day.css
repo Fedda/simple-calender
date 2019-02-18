@@ -1,0 +1,18 @@
+.Day {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 2px;
+  font-size: 20px;
+  width: 100px;
+  height: 100px;
+}
+.Day .context {
+  font-size: 10px;
+}
+
+.active {
+  background-color: #4caf50;
+}
+.Day .removeButton {
+  float: right;
+}
