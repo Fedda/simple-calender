@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './components/Test';
 import Filter from './components/filter/Page';
 import Page from './components/calender/Page';
 import './App.css';

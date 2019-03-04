@@ -12,10 +12,10 @@ npm run test
 
 
 #Todos:
+- Styled components, css in js (emotion)
 - Modal (Portals)
 - State container patter, redux, hooks
 - Day with list of events
-- Styled components, css in js (emotion)
 - Test
 - Flexbox, cssgrid
 - CI, Travis

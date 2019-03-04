@@ -1,12 +1,16 @@
 import React from 'react';
 import { createMonth } from '../../utils/date/monthdays';
-import { toDate } from '../../utils/date/toDate';
 import Day from './Day';
 import { lastMonth } from '../../utils/date/lastMonth';
 import { nextMonth } from '../../utils/date/nextMonth';
 import { getMonthName } from '../../utils/date/monthName';
+import style from 'styled-components';
 import './Calender.css';
 
+const RedButton = style.span`
+  color:red;
+  background-color:blue;
+`;
 class Calender extends React.Component {
   componentDidMount() {}
   handleDelete = (clickedEvent) => {
@@ -35,7 +39,9 @@ class Calender extends React.Component {
       this.state.selectedMonth.getFullYear(),
       this.state.selectedMonth.getMonth()
     );
-    const monthdaysCalender = monthdays.map((obj) => ({ ...obj, context: '' }));
+    const monthdaysCalender = monthdays.map((obj) => {
+      return { ...obj, context: '' };
+    });
 
     const mergedItems = monthdaysCalender.map((d) => {
       let day = <Day key={d.date} day={d} onRemove={() => {}} />;
@@ -59,7 +65,9 @@ class Calender extends React.Component {
           <button className="previous round" onClick={this.prevMonth}>
             Forrgie
           </button>
-          <span className="monthname">{date}</span>
+          <div>
+            <RedButton className="monthname">{date}</RedButton>
+          </div>
           <button onClick={this.nextMonth}>Neste</button>
         </div>
         <div className="day-container">{mergedItems}</div>
