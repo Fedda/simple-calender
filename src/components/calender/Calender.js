@@ -4,13 +4,8 @@ import Day from './Day';
 import { lastMonth } from '../../utils/date/lastMonth';
 import { nextMonth } from '../../utils/date/nextMonth';
 import { getMonthName } from '../../utils/date/monthName';
-import style from 'styled-components';
-import './Calender.css';
+import StyledCalender from './StyledCalender';
 
-const RedButton = style.span`
-  color:red;
-  background-color:blue;
-`;
 class Calender extends React.Component {
   componentDidMount() {}
   handleDelete = (clickedEvent) => {
@@ -60,18 +55,18 @@ class Calender extends React.Component {
       this.state.selectedMonth.getFullYear();
 
     return (
-      <div className="Calender">
-        <div className="nav">
+      <StyledCalender>
+        <nav>
           <button className="previous round" onClick={this.prevMonth}>
             Forrgie
           </button>
           <div>
-            <RedButton className="monthname">{date}</RedButton>
+            <button className="monthname">{date}</button>
           </div>
           <button onClick={this.nextMonth}>Neste</button>
-        </div>
+        </nav>
         <div className="day-container">{mergedItems}</div>
-      </div>
+      </StyledCalender>
     );
   }
 }

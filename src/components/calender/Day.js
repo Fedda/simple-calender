@@ -1,13 +1,13 @@
 import React from 'react';
-import './Day.css';
+import StyledDay from './StyledDay';
 
 class Day extends React.Component {
   render() {
     const { day, onRemove } = this.props;
-    const harActivetiClassName = day.context !== '' ? 'Day active' : 'Day';
+    const harActivetiClassName = day.context !== '' ? 'day active' : 'day';
 
     return (
-      <div className={harActivetiClassName}>
+      <StyledDay className={harActivetiClassName}>
         <div>
           <span>{day.day}</span>
           {day.context !== '' && (
@@ -17,7 +17,7 @@ class Day extends React.Component {
           )}
         </div>
         <span className="context">{day.context}</span>
-      </div>
+      </StyledDay>
     );
   }
 }
