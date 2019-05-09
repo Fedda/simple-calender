@@ -7,11 +7,7 @@
     "test": "jest",
     "dev": "parcel src/index.html"
   },
-  "jest": {
-    "transformIgnorePatterns": [
-      "/node_modules/(?!petfinder-client).+"
-    ]
-  },
+  "jest": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
