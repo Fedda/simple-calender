@@ -5,20 +5,23 @@ import { lastMonth } from '../../utils/date/lastMonth';
 import { nextMonth } from '../../utils/date/nextMonth';
 import { getMonthName } from '../../utils/date/monthName';
 import StyledCalender from './StyledCalender';
+import Button from '../common/Button'
 
 class Calender extends React.Component {
-  componentDidMount() {}
+  componentDidMount() { }
   handleDelete = (clickedEvent) => {
     this.setState({
       events: [this.state.events.filter((e) => e.day !== clickedEvent.day)]
     });
   };
   prevMonth = (e) => {
+    console.log('prevMonth');
     this.setState({
       selectedMonth: lastMonth(this.state.selectedMonth)
     });
   };
   nextMonth = (e) => {
+    console.log('prevMonth');
     this.setState({
       selectedMonth: nextMonth(this.state.selectedMonth)
     });
@@ -39,7 +42,7 @@ class Calender extends React.Component {
     });
 
     const mergedItems = monthdaysCalender.map((d) => {
-      let day = <Day key={d.date} day={d} onRemove={() => {}} />;
+      let day = <Day key={d.date} day={d} onRemove={() => { }} />;
       let hasEvent = events.find((e) => e.context !== '' && d.date === e.date);
       if (hasEvent) {
         return (
@@ -57,13 +60,13 @@ class Calender extends React.Component {
     return (
       <StyledCalender>
         <nav>
-          <button className="previous round" onClick={this.prevMonth}>
+          <Button icon={"arrow_left"} onClick={this.prevMonth}>
             Forrgie
-          </button>
+          </Button>
           <div>
             <button className="monthname">{date}</button>
           </div>
-          <button onClick={this.nextMonth}>Neste</button>
+          <Button icon={"arrow_right"} onClick={this.nextMonth}>Neste</Button>
         </nav>
         <div className="day-container">{mergedItems}</div>
       </StyledCalender>

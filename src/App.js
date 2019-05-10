@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Link } from '@reach/router';
+
 import Filter from './components/filter/Page';
 import Page from './components/calender/Page';
-import './App.css';
-import { Router, Link } from '@reach/router';
+import StyledNav from './styles/layouts/StyledNav';
+import GlobalStyle from './styles/layouts/GlobalStyle';
+
+
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <nav className="app">
-          <ul className="container">
+        <GlobalStyle />
+        <StyledNav>
+          <ul>
             <li>
               <a href="/">Kalender</a>
             </li>
@@ -18,8 +23,8 @@ class App extends React.Component {
               <a href="/filter">Filter</a>
             </li>
           </ul>
-        </nav>
-        <Router>
+        </StyledNav>
+        <Router className="container">
           <Page path="/" />
           <Filter path="/filter" />
         </Router>

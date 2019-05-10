@@ -3,7 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
 
   html {
-    box-sizing: border-box;
+     font-size: 62.5%; /* Now 10px = 1rem!  */
+    /* font-size:10px; */
+    box-sizing: border-box;    
   }
 
   *, *:before, *:after {
@@ -12,12 +14,13 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 65px 0 0;
-    font-family:  "Roboto"
+    padding: 0;
+    font-family:  "Roboto";
+    font-size : 1.6rem;    
   }
 
-  main {
-    width: 90%;
+  .container {
+    width: 96%;
     margin: 0 auto;
   }
 `;

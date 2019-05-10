@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const StyledDay = styled.div`
   background-color: #f1f1f1;
   margin: 10px;
-  padding: 2px;
-  font-size: 20px;
+  padding: 2px;  
   width: 100px;
   height: 100px;
 
@@ -13,10 +12,10 @@ const StyledDay = styled.div`
   }
 
   .context {
-    font-size: 10px;
+    font-size:1rem;
   }
 
-  .removeButton {
+  button {
     float: right;
   }
 `;

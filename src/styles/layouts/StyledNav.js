@@ -1,18 +1,17 @@
-.app .container {
-  display: flex;
-}
+import styled from 'styled-components';
 
-.app ul {
+const StyledNav = styled.nav`
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
 }
-.app li {
+li {
   float: left;
 }
-.app li a {
+li a {
   display: block;
   color: white;
   text-align: center;
@@ -20,10 +19,12 @@
   text-decoration: none;
 }
 
-.app li a:hover:not(.active) {
+li a:hover:not(.active) {
   background-color: #111;
 }
 
-.app .active {
+.active {
   background-color: #4caf50;
-}
+}`;
+
+export default StyledNav;

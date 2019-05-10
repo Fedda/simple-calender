@@ -1,5 +1,6 @@
 import React from 'react';
 import StyledDay from './StyledDay';
+import Button from '../common/Button'
 
 class Day extends React.Component {
   render() {
@@ -7,13 +8,12 @@ class Day extends React.Component {
     const harActivetiClassName = day.context !== '' ? 'day active' : 'day';
 
     return (
-      <StyledDay className={harActivetiClassName}>
+      <StyledDay className={harActivetiClassName} >
         <div>
           <span>{day.day}</span>
           {day.context !== '' && (
-            <button className="removeButton" onClick={onRemove}>
-              X
-            </button>
+            <Button icon={"close"} onClick={onRemove}>
+            </Button>
           )}
         </div>
         <span className="context">{day.context}</span>
