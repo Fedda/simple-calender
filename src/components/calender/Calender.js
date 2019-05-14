@@ -15,13 +15,11 @@ class Calender extends React.Component {
     });
   };
   prevMonth = (e) => {
-    console.log('prevMonth');
     this.setState({
       selectedMonth: lastMonth(this.state.selectedMonth)
     });
   };
   nextMonth = (e) => {
-    console.log('prevMonth');
     this.setState({
       selectedMonth: nextMonth(this.state.selectedMonth)
     });
@@ -60,13 +58,13 @@ class Calender extends React.Component {
     return (
       <StyledCalender>
         <nav>
-          <Button icon={"arrow_left"} onClick={this.prevMonth}>
+          <Button icon={"navigate_before"} type={"round"} onClick={this.prevMonth}>
             Forrgie
           </Button>
           <div>
-            <button className="monthname">{date}</button>
+            <div className="monthname">{date}</div>
           </div>
-          <Button icon={"arrow_right"} onClick={this.nextMonth}>Neste</Button>
+          <Button icon={"navigate_next"} type={"round"} onClick={this.nextMonth}>Neste</Button>
         </nav>
         <div className="day-container">{mergedItems}</div>
       </StyledCalender>

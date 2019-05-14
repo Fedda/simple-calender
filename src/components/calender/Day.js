@@ -12,7 +12,7 @@ class Day extends React.Component {
         <div>
           <span>{day.day}</span>
           {day.context !== '' && (
-            <Button icon={"close"} onClick={onRemove}>
+            <Button icon={"close"} type={"round"} transparent={"true"} onClick={onRemove}>
             </Button>
           )}
         </div>

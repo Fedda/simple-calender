@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;    
   }
 
+  input,button, textarea, select{
+    font-family:  'Roboto';    
+  }
+  
   *, *:before, *:after {
     box-sizing: inherit;
   }
@@ -15,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family:  "Roboto";
+    font-family:  'Roboto';    
     font-size : 1.6rem;    
   }
 
