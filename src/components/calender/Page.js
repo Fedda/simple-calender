@@ -3,9 +3,7 @@ import Calender from './Calender';
 import { toDate } from '../../utils/date/toDate';
 import * as ls from '../../controllers/events';
 import Button from '../common/Button';
-import styled from 'styled-components';
-
-
+import { StyledInput, StyledInputDate } from '../../styles/common/StyledInput';
 
 class Page extends React.Component {
   componentDidMount() {
@@ -94,17 +92,26 @@ class Page extends React.Component {
               id="activity"
               className="form__field"
             />
-            <label for="activity" className="form__label" >Skriv inn aktivite</label>
+            <label for="activity" className="form__label">
+              Skriv inn aktivitet
+            </label>
           </StyledInput>
-          {/* <input
-            placeholder="13/02/2019"
-            type="date"
-            value={this.state.newEventDate}
-            onChange={(event) => this.newEventDateChanged(event)}
-            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-          /> */}
+          <StyledInputDate>
+            <input
+              placeholder="13/02/2019"
+              type="date"
+              value={this.state.newEventDate}
+              onChange={(event) => this.newEventDateChanged(event)}
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              class="form__field"
+              id="datepicker"
+            />
+            <label for="datepicker" className="form__label">
+              Neste avtale
+            </label>
+          </StyledInputDate>
 
-          <Button type="submit" text={"Legg til"}></Button>
+          <Button type="submit" text={'Legg til'} />
         </form>
         <div>{foundMarkup}</div>
         <div>
@@ -116,29 +123,4 @@ class Page extends React.Component {
   }
 }
 
-const StyledInput = styled.div`
-  display:inline-block;
-
-  .form__field{
-    border: 0;
-    border-bottom: 1px solid #d2d2d2;
-    background: transparent;
-    padding: 7px 0;
-  }
-  .form__field::placeholder {
-     color: transparent;
-  }  
-  .form__field:placeholder-shown ~ .form__label {
-     top: 10px; 
-  }
-
-  label,.form__field:focus ~ .form__label {
-    position: relative;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 12px;
-    color: #9b9b9b;
-}
-`;
 export default Page;
