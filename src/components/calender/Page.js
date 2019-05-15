@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Calender from './Calender';
 import { toDate } from '../../utils/date/toDate';
 import * as ls from '../../controllers/events';
@@ -79,7 +80,7 @@ class Page extends React.Component {
     return (
       <div>
         <h1>Enkel kalender</h1>
-        <form onSubmit={(event) => this.handleAddEventSubmit(event)}>
+        <StyledForm onSubmit={(event) => this.handleAddEventSubmit(event)}>
           <StyledInput>
             <input
               placeholder="Skriv inn aktivitet"
@@ -96,6 +97,7 @@ class Page extends React.Component {
               Skriv inn aktivitet
             </label>
           </StyledInput>
+
           <StyledInputDate>
             <input
               placeholder="13/02/2019"
@@ -111,8 +113,10 @@ class Page extends React.Component {
             </label>
           </StyledInputDate>
 
-          <Button type="submit" text={'Legg til'} />
-        </form>
+          <div>
+            <Button type="submit" text={'Legg til'} />
+          </div>
+        </StyledForm>
         <div>{foundMarkup}</div>
         <div>
           <Calender events={this.state.events} onRemove={this.handleDelete} />
@@ -122,5 +126,11 @@ class Page extends React.Component {
     );
   }
 }
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
 
 export default Page;

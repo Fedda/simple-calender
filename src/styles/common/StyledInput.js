@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledInputDate = styled.div`
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   min-width: 150px;
+  margin-bottom: 15px;
 
   .form__field {
-    display: block;
+    /* display: block; */
     outline: 0;
     border: 0;
     border-bottom: 1px solid #d2d2d2;
@@ -24,16 +25,14 @@ export const StyledInputDate = styled.div`
 `;
 
 export const StyledInput = styled.div`
-  display: inline-block;
   position: relative;
   min-width: 200px;
-
+  margin-bottom: 15px;
   .form__field {
-    display: block;
     border: 0;
     border-bottom: 1px solid #d2d2d2;
     background: transparent;
-    padding-top: 12px;
+
     font-size: 16px;
     outline: 0;
   }
@@ -45,18 +44,19 @@ export const StyledInput = styled.div`
     color: transparent;
   }
   .form__field:placeholder-shown ~ .form__label {
-    top: 14px;
+    top: 0px;
     font-size: 16px;
   }
 
-  label,
-  .form__field:focus ~ .form__label {
+  label.form__label {
     position: absolute;
-    top: 0;
+    top: -14px;
     left: 0;
-    display: block;
+    /* display: block; */
     transition: 0.2s;
     color: #9b9b9b;
     font-size: 1rem;
+  }
+  .form__field:focus {
   }
 `;
