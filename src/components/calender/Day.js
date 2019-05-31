@@ -1,25 +1,38 @@
 import React from 'react';
 import StyledDay from './StyledDay';
-import Button from '../common/Button'
+import Button from '../common/Button';
 
 class Day extends React.Component {
   render() {
     const { day, onRemove } = this.props;
-    const harActivetiClassName = day.context !== '' ? 'day active' : 'day';
+    const hasEventClassName = hasEvents(day) ? 'day active context' : 'day';
 
     return (
-      <StyledDay className={harActivetiClassName} >
-        <div>
+      <StyledDay>
+        <div className={'day-number'}>
           <span>{day.day}</span>
-          {day.context !== '' && (
-            <Button icon={"close"} type={"round"} transparent={"true"} onClick={onRemove}>
-            </Button>
+          {hasEvents(day) && (
+            <Button
+              icon={'close'}
+              type={'round'}
+              transparent={'true'}
+              onClick={onRemove}
+            />
           )}
         </div>
-        <span className="context">{day.context}</span>
+        {hasEvents(day) &&
+          day.events.map((e) => (
+            <div className={hasEventClassName} key={e.fromTime}>
+              {e.context}
+            </div>
+          ))}
       </StyledDay>
     );
   }
+}
+
+function hasEvents(day) {
+  return Array.isArray(day.events) && day.events.length > 0;
 }
 
 export default Day;

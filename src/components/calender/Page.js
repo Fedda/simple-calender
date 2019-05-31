@@ -37,10 +37,4 @@ class Page extends React.Component {
   }
 }
 
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
 export default Page;

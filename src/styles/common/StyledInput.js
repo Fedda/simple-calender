@@ -60,3 +60,6 @@ export const StyledInput = styled.div`
   .form__field:focus {
   }
 `;
+
+//todo inhe rtice from StyledInput and set min-width:100px;
+export const StyledInputTime = styled.div``;
