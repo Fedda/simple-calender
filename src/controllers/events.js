@@ -27,8 +27,11 @@ export function getByKey(key) {
   return JSON.parse(obj);
 }
 
-export function deleteEvent(key) {
-  localStorage.removeItem(key);
+export function deleteEvent(day) {
+  localStorage.removeItem(day.date);
+  if (day.events.length > 0) {
+    saveEvent(day);
+  }
 }
 //its hard to query and sort using localstorage
 export function getAllByDateInterval(fromdate, todate) {

@@ -19,10 +19,10 @@ const StyledDay = styled.div`
   .context {
     font-size: 1rem;
   }
-
-  button {
+  .delete-event {
     float: right;
-    margin-bottom: 5px;
+    padding-right: 5px;
+    cursor: pointer;
   }
 `;
 

@@ -5,10 +5,10 @@ import { lastMonth } from '../../utils/date/lastMonth';
 import { nextMonth } from '../../utils/date/nextMonth';
 import { getMonthName } from '../../utils/date/monthName';
 import StyledCalender from './StyledCalender';
-import Button from '../common/Button'
+import Button from '../common/Button';
 
 class Calender extends React.Component {
-  componentDidMount() { }
+  componentDidMount() {}
   handleDelete = (clickedEvent) => {
     this.setState({
       events: [this.state.events.filter((e) => e.day !== clickedEvent.day)]
@@ -36,16 +36,14 @@ class Calender extends React.Component {
       this.state.selectedMonth.getMonth()
     );
     const monthdaysCalender = monthdays.map((obj) => {
-      return { ...obj, context: '' };
+      return { ...obj };
     });
 
     const mergedItems = monthdaysCalender.map((d) => {
-      let day = <Day key={d.date} day={d} onRemove={() => { }} />;
+      let day = <Day key={d.date} day={d} onRemove={() => {}} />;
       let hasEvent = events.find((e) => e.context !== '' && d.date === e.date);
       if (hasEvent) {
-        return (
-          <Day key={hasEvent.day} day={hasEvent} onRemove={() => onRemove(d)} />
-        );
+        return <Day key={hasEvent.day} day={hasEvent} onRemove={onRemove} />;
       }
       return day;
     });
@@ -58,13 +56,23 @@ class Calender extends React.Component {
     return (
       <StyledCalender>
         <nav>
-          <Button icon={"navigate_before"} type={"round"} onClick={this.prevMonth}>
+          <Button
+            icon={'navigate_before'}
+            type={'round'}
+            onClick={this.prevMonth}
+          >
             Forrgie
           </Button>
           <div>
             <div className="monthname">{date}</div>
           </div>
-          <Button icon={"navigate_next"} type={"round"} onClick={this.nextMonth}>Neste</Button>
+          <Button
+            icon={'navigate_next'}
+            type={'round'}
+            onClick={this.nextMonth}
+          >
+            Neste
+          </Button>
         </nav>
         <div className="day-container">{mergedItems}</div>
       </StyledCalender>

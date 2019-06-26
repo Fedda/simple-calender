@@ -11,19 +11,17 @@ class Day extends React.Component {
       <StyledDay>
         <div className={'day-number'}>
           <span>{day.day}</span>
-          {hasEvents(day) && (
-            <Button
-              icon={'close'}
-              type={'round'}
-              transparent={'true'}
-              onClick={onRemove}
-            />
-          )}
         </div>
         {hasEvents(day) &&
           day.events.map((e) => (
             <div className={hasEventClassName} key={e.fromTime}>
               {e.context}
+              <span
+                className="delete-event"
+                onClick={() => onRemove(day, e.fromTime)}
+              >
+                x
+              </span>
             </div>
           ))}
       </StyledDay>

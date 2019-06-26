@@ -16,12 +16,20 @@ class Page extends React.Component {
   handleNewEvent = (event) => {
     this.setState({ events: [event, ...this.state.events] });
   };
-  handleDelete = (event) => {
-    let newArray = this.state.events.filter((e) => e.date !== event.date);
-    ls.deleteEvent(event.date);
-    this.setState({
-      events: newArray
-    });
+  handleDelete = (day, fromTime) => {
+    const filtered = this.state.events.filter((e) => e.date !== day.date);
+    day.events = day.events.filter((e) => e.fromTime !== fromTime);
+
+    if (day.events.length > 0) {
+      this.setState({
+        events: [day, ...filtered]
+      });
+    } else {
+      this.setState({
+        events: filtered
+      });
+    }
+    ls.deleteEvent(day);
   };
 
   render() {

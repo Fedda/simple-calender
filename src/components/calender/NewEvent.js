@@ -23,7 +23,6 @@ export default class NewEvent extends Component {
     const toTime = this.state.newEventToTime;
     const context = this.state.newEventContext;
 
-    let day = events.find((e) => e.date === date);
     event.preventDefault();
 
     const newEvent = {
@@ -33,31 +32,33 @@ export default class NewEvent extends Component {
       context: context
     };
 
+    let day = events.find((e) => e.date === date);
     //todo move to utils
-    const isOverlapping = day.events.find(function(e) {
-      //bad input
-      debugger;
-      if (toTime < fromTime) {
-        return true;
-      }
-      if (fromTime > toTime) {
-        return true;
-      }
 
-      //bellow
-      if (
-        fromTime <= e.fromTime &&
-        toTime < e.fromTime &&
-        fromTime < e.toTime
-      ) {
-        return false;
-      }
-      //above
-      if (fromTime > e.fromTime && fromTime > e.toTime && toTime > e.toTime) {
-        return false;
-      }
-      return true;
-    });
+    const isOverlapping =
+      day &&
+      day.events.find(function(e) {
+        if (toTime < fromTime) {
+          return true;
+        }
+        if (fromTime > toTime) {
+          return true;
+        }
+
+        //bellow
+        if (
+          fromTime <= e.fromTime &&
+          toTime < e.fromTime &&
+          fromTime < e.toTime
+        ) {
+          return false;
+        }
+        //above
+        if (fromTime > e.fromTime && fromTime > e.toTime && toTime > e.toTime) {
+          return false;
+        }
+        return true;
+      });
 
     if (isOverlapping) {
       //need to check dateintervall
